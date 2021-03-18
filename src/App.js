@@ -1,11 +1,25 @@
-import './App.css';
+import {List} from "./pages/List";
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import {Person} from "./pages/Person";
+import CssBaseline from "@material-ui/core/CssBaseline";
 import React from "react";
-import {App2} from "./components/App2";
 
-export function App() {
+function App() {
   return (
-    <div className="App">
-      <App2 />
-    </div>
+      <BrowserRouter>
+        <>
+            <CssBaseline />
+            <Switch>
+                <Route exact path="/">
+                    <List />
+                </Route>
+                <Route path="/person/:personId">
+                    <Person />
+                </Route>
+            </Switch>
+        </>
+      </BrowserRouter>
   );
 }
+
+export default App;
