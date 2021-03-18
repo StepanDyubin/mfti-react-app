@@ -1,9 +1,11 @@
+import { Link } from 'react-router-dom';
+import MUICard from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
-import Card from "@material-ui/core/Card";
+import MUILink from "@material-ui/core/Link";
 import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
 
@@ -21,32 +23,31 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export const CityCard = () => {
+export const Card = ({ id, name, image, wikiLink }) => {
     const classes = useStyles();
 
     return (
-        <Card className={classes.card}>
+        <MUICard className={classes.card}>
             <CardMedia
                 className={classes.cardMedia}
-                image="https://source.unsplash.com/random"
+                image={image}
                 title="Image title"
             />
             <CardContent className={classes.cardContent}>
                 <Typography gutterBottom variant="h5" component="h2">
-                    Heading
+                    {name}
                 </Typography>
-                <Typography>
-                    This is a media card. You can use this section to describe the content.
-                </Typography>
+                <MUILink href={wikiLink}>
+                    {wikiLink}
+                </MUILink>
             </CardContent>
             <CardActions>
                 <Button size="small" color="primary">
-                    View
-                </Button>
-                <Button size="small" color="primary">
-                    Edit
+                    <Link to={`/person/${id}`}>
+                        View
+                    </Link>
                 </Button>
             </CardActions>
-        </Card>
+        </MUICard>
     )
 }

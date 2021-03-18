@@ -1,16 +1,16 @@
 import Typography from "@material-ui/core/Typography";
-import React from "react";
 import AppBar from "@material-ui/core/AppBar";
-
+import MUIToolbar from '@material-ui/core/Toolbar';
+import React from "react";
 
 export const Toolbar = () => {
     return (
-        <AppBar position="sticky">
-            <Toolbar>
+        <AppBar position="relative">
+            <MUIToolbar>
                 <Typography variant="h6" color="inherit" noWrap>
-                    Toolbar
+                    Album layout
                 </Typography>
-            </Toolbar>
+            </MUIToolbar>
         </AppBar>
-    )
-};
+    );
+}
